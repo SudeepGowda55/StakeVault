@@ -88,11 +88,11 @@ The API reference documentation at https://docs.availproject.org/nexus/avail-nex
 
 **Current Issue**: The documentation lacks a dedicated API reference section for gas and fee estimation, which is critical for developers building production applications where users need to understand transaction costs upfront.
 
-### Missing: Response Format Clarity and Decoded Values
+### 4. Missing: Response Format Clarity and Decoded Values
 
 **Current Issue**: The API responses contain complex hexadecimal and encoded data that is difficult for developers to interpret without additional decoding steps. The documentation doesn't explain how to decode these values or provide human-readable examples.
 
-## 4.Problem Example:
+##Problem Example:
 
 When calling blockchain APIs, developers receive responses like:
 
@@ -173,6 +173,45 @@ For complex response fields, provide detailed explanations:
 | `publish_time` | `1714748300` | `May 3, 2024 14:45:00 GMT` | Unix timestamp |
 | `gasUsed` | `"0x1a2b3"` | `107,187` | Hexadecimal to decimal conversion |
 | `amount` | `"0x5f5e100"` | `100.00 USDC` | Wei to token units (6 decimals for USDC) |
+
+
+**4. Add Explorer Links for Transactions**
+
+**Current Issue**: When transactions are submitted, developers receive transaction hashes but no direct links to blockchain explorers.
+
+**Recommended Addition**: Automatically include explorer links in all transaction responses:
+
+
+##5. Add Explorer Links for Transactions**
+
+**Current Issue**: When transactions are submitted, developers receive transaction hashes but no direct links to blockchain explorers.
+
+**Recommended Addition**: Automatically include explorer links in all transaction responses:
+
+```
+{
+"success": true,
+"transactionHash": "0x8e5a3b2c1d4f6e7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a",
+"chainId": 1,
+"explorerLinks": {
+"transaction": "https://etherscan.io/tx/0x8e5a...0f1a",
+"fromAddress": "https://etherscan.io/address/0x742d...",
+"toAddress": "https://etherscan.io/address/0x456a...",
+"token": "https://etherscan.io/token/0xa0b8..."
+},
+"qrCode": "https://api.nexus.avail.network/qr/tx/0x8e5a...0f1a" // For mobile sharing
+}
+```
+text
+
+**Benefits**:
+- One-click transaction verification
+- Easy sharing with users/support
+- Quick debugging of failed transactions
+- Better transparency and trust
+
+
+
            
 
 
