@@ -15,5 +15,3 @@ A simple Ethereum staking vault built with **Hardhat v3.0+** for ETHGlobal hacka
 - **Development**: Hardhat 3.0.0+ (ESM)
 - **Frontend**: Vanilla JavaScript + Ethers.js v6
 - **Testing**: Hardhat Toolbox
-
-## Installation
