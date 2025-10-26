@@ -1,3 +1,9 @@
+## 📑 Table of Contents
+
+- [📝 Avail Nexus SDK Documentation Feedback](#-avail-nexus-sdk-documentation-feedback)
+- [🏦 Sample Project: StakeVault ETH Staking Protocol](#-sample-project-stakevault-eth-staking-protocol)
+
+
 # Avail-Nexus-SDK-Feedback
 
 ## 1. Sample Projects & End-to-End Examples
