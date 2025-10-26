@@ -3,7 +3,6 @@ import { parseEther, formatEther } from "viem";
 
 // Helper function to add delays for demo presentation
 async function sleep(seconds: number) {
-  console.log(`\n⏳ Pausing for ${seconds} seconds...\n`);
   await new Promise((resolve) => setTimeout(resolve, seconds * 1000));
 }
 
@@ -50,7 +49,7 @@ console.log("✅ Vault funded!");
 console.log("");
 
 // Pause to explain deployment
-await sleep(3);
+await sleep(4);
 
 // =============== STEP 1: Initial State ===============
 console.log("=".repeat(70));
@@ -69,7 +68,7 @@ console.log("📈 Currently Staked:", formatEther(initialStaked), "ETH");
 console.log("💎 Current Rewards:", formatEther(initialRewards), "ETH\n");
 
 // Pause to explain initial state
-await sleep(3);
+await sleep(4);
 
 // =============== STEP 2: Deposit ===============
 console.log("=".repeat(70));
@@ -123,7 +122,7 @@ console.log("📊 Effective APR:", actualApr.toString(), "%");
 console.log("");
 
 // Pause to explain rewards after 7 days
-await sleep(5);
+await sleep(4);
 
 // =============== STEP 4: More Time Passes ===============
 console.log("=".repeat(70));
