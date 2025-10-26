@@ -175,14 +175,7 @@ For complex response fields, provide detailed explanations:
 | `amount` | `"0x5f5e100"` | `100.00 USDC` | Wei to token units (6 decimals for USDC) |
 
 
-**4. Add Explorer Links for Transactions**
-
-**Current Issue**: When transactions are submitted, developers receive transaction hashes but no direct links to blockchain explorers.
-
-**Recommended Addition**: Automatically include explorer links in all transaction responses:
-
-
-##5. Add Explorer Links for Transactions**
+**3. Add Explorer Links for Transactions**
 
 **Current Issue**: When transactions are submitted, developers receive transaction hashes but no direct links to blockchain explorers.
 
