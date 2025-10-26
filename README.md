@@ -88,7 +88,7 @@ The API reference documentation at https://docs.availproject.org/nexus/avail-nex
 
 **Current Issue**: The documentation lacks a dedicated API reference section for gas and fee estimation, which is critical for developers building production applications where users need to understand transaction costs upfront.
 
-### 4. Missing: Response Format Clarity and Decoded Values
+### 4.Missing: Response Format Clarity and Decoded Values
 
 **Current Issue**: The API responses contain complex hexadecimal and encoded data that is difficult for developers to interpret without additional decoding steps. The documentation doesn't explain how to decode these values or provide human-readable examples.
 
