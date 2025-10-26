@@ -1,21 +1,63 @@
-# 🏦 StakeVault - ETH Staking DApp
+# 🏦 StakeVault - ETH Staking Protocol
 
-A simple Ethereum staking vault built with **Hardhat v3.0+** for ETHGlobal hackathon.
+A decentralized Ethereum staking protocol built with **Hardhat v3** for the ETHGlobal ETHOnline hackathon. Stake ETH, earn 5% APR, and withdraw anytime with no lock-up period.
 
-## Features
+🔗 **Live Contract:** [0xf8c7cce6a80140b6c6cba4fe9ca172b6c544fe75](https://sepolia.etherscan.io/address/0xf8c7cce6a80140b6c6cba4fe9ca172b6c544fe75) (Sepolia)
 
-- 💰 Stake ETH and earn 5% APR
-- 📊 Real-time reward calculation
-- 🔄 Withdraw anytime with rewards
+## ✨ Features
 
-## Tech Stack
+- 💰 **5% APR Rewards** - Earn competitive returns on staked ETH
+- 🔄 **Instant Withdrawals** - No lock-up period, withdraw anytime
+- 🔒 **Fully Tested** - 13 comprehensive tests (Solidity + TypeScript)
+- ⚡ **Gas Optimized** - Custom errors and efficient patterns
 
-- **Smart Contracts**: Solidity 0.8.27
-- **Development**: Hardhat 3.0.0+ (ESM)
-- **Frontend**: Vanilla JavaScript + Ethers.js v6
-- **Testing**: Hardhat Toolbox
+## 🎯 How It Works
 
+1. **Deposit ETH** → Stake any amount to start earning
+2. **Earn 5% APR** → Rewards calculated automatically: `reward = (balance × 5% × time) / 365 days`
+3. **Withdraw Anytime** → Get principal + rewards with no lock-up
 
+**Example:** Stake 10 ETH for 37 days → Earn ~0.05 ETH in rewards!
+
+## 🚀 Quick Start
+
+```bash
+# Clone and setup
+git clone https://github.com/SudeepGowda55/aiPay.git
+cd aiPay/hardhat-v3
+npm install
+
+# Run tests (13 passing)
+npx hardhat test
+
+# Run local demo (simulates 37 days)
+npx hardhat run scripts/demo-local.ts
+```
+
+## 📚 Documentation
+
+For complete technical details, deployment guides, and API reference:
+
+👉 **[View Full Documentation](hardhat-v3/README.md)**
+
+Additional resources:
+
+- 🎥 [Video Demo Script](hardhat-v3/DEMO-VIDEO-SCRIPT.md) - Complete recording guide
+- 📝 [Smart Contract](hardhat-v3/contracts/StakeVault.sol) - Solidity source code
+- 🧪 [Test Suite](hardhat-v3/test/) - Solidity & TypeScript tests
+
+## 🛠️ Tech Stack
+
+- **Smart Contracts:** Solidity 0.8.28
+- **Framework:** Hardhat 3.0.9 (ESM)
+- **Testing:** Foundry + Node.js test runner
+- **Network:** Sepolia Testnet
+
+## 📄 License
+
+MIT
+
+---
 
 # Avail-Nexus-SDK-Feedback
 
@@ -28,6 +70,7 @@ The documentation lacks complete, working sample projects that developers can cl
 ### Recommendation: Add Complete Sample Projects
 
 **Purpose**: Provide end-to-end working examples that developers can:
+
 - Clone and run in under 5 minutes
 - Use as starting templates for their own projects
 - Reference for implementation patterns
@@ -36,6 +79,7 @@ The documentation lacks complete, working sample projects that developers can cl
 ### Suggested Sample Projects to Add:
 
 #### 1. Cross-Chain Payment Processor
+
 - Accept payments from any chain
 - Merchant dashboard with unified balances
 - Webhook integration examples
@@ -43,6 +87,7 @@ The documentation lacks complete, working sample projects that developers can cl
 - **Tech Stack**: Next.js + Nexus Widgets + PostgreSQL
 
 #### 2. Multi-Chain DeFi Dashboard
+
 - Portfolio aggregation across chains
 - One-click rebalancing to highest yields
 - Integration with Aave, Compound, Uniswap
@@ -50,18 +95,21 @@ The documentation lacks complete, working sample projects that developers can cl
 - **Tech Stack**: React + Nexus Core + The Graph
 
 #### 3. Social Tipping Platform
+
 - Peer-to-peer cross-chain tips
 - Creator earnings dashboard
 - Tip consolidation features
 - **Tech Stack**: Next.js + Nexus Widgets + IPFS
 
 #### 4. Gaming Treasury Manager
+
 - Multi-chain tournament registration
 - Prize pool distribution across chains
 - Multi-sig integration for guild management
 - **Tech Stack**: Next.js + Safe + Nexus SDK
 
 #### 5. Cross-Chain Invoice System
+
 - Business invoice creation and management
 - Multi-chain payment acceptance
 - Automated currency conversion
@@ -69,6 +117,7 @@ The documentation lacks complete, working sample projects that developers can cl
 - **Tech Stack**: Next.js + Nexus Core + PostgreSQL
 
 ## 2. Interactive API Reference Documentation
+
 <img width="2293" height="1106" alt="image" src="https://github.com/user-attachments/assets/feec7cfd-1141-497e-ada8-2fbcedab1b58" />
 
 ### Current Gap
@@ -78,6 +127,7 @@ The API reference documentation at https://docs.availproject.org/nexus/avail-nex
 ### Recommendation: Add Interactive API Interface
 
 **Inspiration**: The Pyth Network's Hermes API documentation (https://hermes.pyth.network/docs/) provides an excellent example of interactive API documentation with:
+
 - Live request builders where developers can test endpoints directly
 - Real-time response visualization
 - Parameter input fields with validation
@@ -128,6 +178,7 @@ When calling blockchain APIs, developers receive responses like:
 text
 
 **Issues**:
+
 - Hexadecimal data (`0x504e4155...`) is not human-readable
 - Price values (`"6163260000000"`) need exponential conversion
 - Unix timestamps need date conversion
@@ -138,6 +189,7 @@ text
 **1.Add "Decoded Response Examples" Section**
 
 For every API endpoint, provide both raw and decoded responses side-by-side:
+
 ```
 {
   "transactionHash": "0x8e5a3b2c1d4f6e7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a",
@@ -163,20 +215,10 @@ Decoded Response (Human-Readable):
 **2. Add Parameter Explanations with Examples**
 
 For complex response fields, provide detailed explanations:
-Field         |  Raw Value        |  Decoded Value             |  Explanation                                           
+Field | Raw Value | Decoded Value | Explanation  
 --------------+-------------------+----------------------------+--------------------------------------------------------
-price         |  "6163260000000"  |  $61,632.60                |  Price with 8 decimal places. Divide by 10^8 (expo: -8)
-conf          |  "3268548079"     |  ±$32.69                   |  Confidence interval (price uncertainty)               
-publish_time  |  1714748300       |  May 3, 2024 14:45:00 GMT  |  Unix timestamp                                        
-gasUsed       |  "0x1a2b3"        |  107,187                   |  Hexadecimal to decimal conversion                     
-amount        |  "0x5f5e100"      |  100.00 USDC               |  Wei to token units (6 decimals for USDC)              
-
-
-
-
-
-
-
-
-
-
+price | "6163260000000" | $61,632.60 | Price with 8 decimal places. Divide by 10^8 (expo: -8)
+conf | "3268548079" | ±$32.69 | Confidence interval (price uncertainty)  
+publish_time | 1714748300 | May 3, 2024 14:45:00 GMT | Unix timestamp  
+gasUsed | "0x1a2b3" | 107,187 | Hexadecimal to decimal conversion  
+amount | "0x5f5e100" | 100.00 USDC | Wei to token units (6 decimals for USDC)
