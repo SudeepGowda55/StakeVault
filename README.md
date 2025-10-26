@@ -89,6 +89,93 @@ The API reference documentation at https://docs.availproject.org/nexus/avail-nex
 
 **Current Issue**: The documentation lacks a dedicated API reference section for gas and fee estimation, which is critical for developers building production applications where users need to understand transaction costs upfront.
 
+### Missing: Response Format Clarity and Decoded Values
+
+**Current Issue**: The API responses contain complex hexadecimal and encoded data that is difficult for developers to interpret without additional decoding steps. The documentation doesn't explain how to decode these values or provide human-readable examples.
+
+## 4.Problem Example:
+
+When calling blockchain APIs, developers receive responses like:
+
+{
+"data": {
+"binary": {
+"encoding": "hex",
+"data": ["504e41550000000000000000000000000000000000000000000000000000000000000064000000000000000000000000000000000000000000000000000000000000006400000000000000000000000000000000000000000000000000000000016f4929"]
+},
+"parsed": [{
+"id": "e62df6c8b4a85fe1a67db44dc12de5db330f7ac66b72dc658afedf0f4a415b43",
+"price": {
+"price": "6163260000000",
+"conf": "3268548079",
+"expo": -8,
+"publish_time": 1714748300
+},
+"ema_price": {
+"price": "6130098800000",
+"conf": "3587162000",
+"expo": -8,
+"publish_time": 1714748300
+},
+"metadata": {
+"slot": 138886134,
+"proof_available_time": 1714748302,
+"prev_publish_time": 1714748300
+}
+}]
+}
+}
+
+text
+
+**Issues**:
+- Hexadecimal data (`0x504e4155...`) is not human-readable
+- Price values (`"6163260000000"`) need exponential conversion
+- Unix timestamps need date conversion
+- No explanation of what each field represents
+
+#### Recommended Solution:
+
+**1.Add "Decoded Response Examples" Section**
+
+For every API endpoint, provide both raw and decoded responses side-by-side:
+```
+{
+  "transactionHash": "0x8e5a3b2c1d4f6e7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a",
+  "amount": "0x5f5e100",
+  "gasUsed": "0x1a2b3",
+  "effectiveGasPrice": "0x3b9aca00"
+}
+```
+
+Decoded Response (Human-Readable):
+
+```
+{
+  "transactionHash": "0x8e5a...0f1a",
+  "amount": "100.00 USDC",  // 0x5f5e100 = 100,000,000 (6 decimals) = 100 USDC
+  "gasUsed": "107,187 gas",  // 0x1a2b3 = 107,187
+  "effectiveGasPrice": "1 Gwei",  // 0x3b9aca00 = 1,000,000,000 wei = 1 Gwei
+  "totalGasCostInEth": "0.000107187 ETH",  // gasUsed × effectiveGasPrice
+  "totalGasCostInUsd": "$0.31"  // at ETH price of $2,900
+}
+```
+
+**2. Add Parameter Explanations with Examples**
+
+For complex response fields, provide detailed explanations:
+Field         |  Raw Value        |  Decoded Value             |  Explanation                                           
+--------------+-------------------+----------------------------+--------------------------------------------------------
+price         |  "6163260000000"  |  $61,632.60                |  Price with 8 decimal places. Divide by 10^8 (expo: -8)
+conf          |  "3268548079"     |  ±$32.69                   |  Confidence interval (price uncertainty)               
+publish_time  |  1714748300       |  May 3, 2024 14:45:00 GMT  |  Unix timestamp                                        
+gasUsed       |  "0x1a2b3"        |  107,187                   |  Hexadecimal to decimal conversion                     
+amount        |  "0x5f5e100"      |  100.00 USDC               |  Wei to token units (6 decimals for USDC)              
+
+
+
+
+
 
 
 
