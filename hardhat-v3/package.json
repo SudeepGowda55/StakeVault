@@ -1,7 +1,14 @@
 {
-  "name": "aiPay",
+  "name": "eth-stake-vault",
   "version": "1.0.0",
   "type": "module",
+  "scripts": {
+    "test": "hardhat test",
+    "test:solidity": "hardhat test solidity",
+    "test:nodejs": "hardhat test nodejs",
+    "deploy:local": "hardhat ignition deploy ignition/modules/StakeVault.ts",
+    "deploy:sepolia": "hardhat ignition deploy ignition/modules/StakeVault.ts --network sepolia"
+  },
   "devDependencies": {
     "@nomicfoundation/hardhat-ignition": "^3.0.3",
     "@nomicfoundation/hardhat-toolbox-viem": "^5.0.0",

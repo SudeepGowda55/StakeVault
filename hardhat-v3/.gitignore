@@ -1,6 +1,11 @@
 # Node modules
 /node_modules
 
+# Environment variables (contains private keys!)
+.env
+.env.local
+.env.*.local
+
 # Compilation output
 /dist
 
