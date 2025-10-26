@@ -96,6 +96,8 @@ The API reference documentation at https://docs.availproject.org/nexus/avail-nex
 
 When calling blockchain APIs, developers receive responses like:
 
+```
+
 {
 "data": {
 "binary": {
@@ -124,8 +126,7 @@ When calling blockchain APIs, developers receive responses like:
 }]
 }
 }
-
-text
+```
 
 **Issues**:
 - Hexadecimal data (`0x504e4155...`) is not human-readable
