@@ -85,6 +85,10 @@ The API reference documentation at https://docs.availproject.org/nexus/avail-nex
 - Automatic code generation for multiple languages
 - Authentication testing within the docs(reduces the hassle of tokens)
 
+## 3.Missing: Gas/Fee Estimation API Reference
+
+**Current Issue**: The documentation lacks a dedicated API reference section for gas and fee estimation, which is critical for developers building production applications where users need to understand transaction costs upfront.
+
 
 
 
