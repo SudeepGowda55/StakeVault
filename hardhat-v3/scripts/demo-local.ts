@@ -1,6 +1,12 @@
 import { network } from "hardhat";
 import { parseEther, formatEther } from "viem";
 
+// Helper function to add delays for demo presentation
+async function sleep(seconds: number) {
+  console.log(`\n⏳ Pausing for ${seconds} seconds...\n`);
+  await new Promise((resolve) => setTimeout(resolve, seconds * 1000));
+}
+
 // Connect to local Hardhat network
 const { viem } = await network.connect({
   network: "hardhatMainnet",
@@ -43,6 +49,9 @@ await testClient.setBalance({
 console.log("✅ Vault funded!");
 console.log("");
 
+// Pause to explain deployment
+await sleep(3);
+
 // =============== STEP 1: Initial State ===============
 console.log("=".repeat(70));
 console.log("STEP 1: Checking Initial State");
@@ -58,6 +67,9 @@ const [initialStaked, initialRewards] = await vault.read.getUserInfo([
 ]);
 console.log("📈 Currently Staked:", formatEther(initialStaked), "ETH");
 console.log("💎 Current Rewards:", formatEther(initialRewards), "ETH\n");
+
+// Pause to explain initial state
+await sleep(3);
 
 // =============== STEP 2: Deposit ===============
 console.log("=".repeat(70));
@@ -78,6 +90,9 @@ const [stakedAfterDeposit, rewardsAfterDeposit, depositTime] = await vault.read.
 console.log("📊 New Staked Amount:", formatEther(stakedAfterDeposit), "ETH");
 console.log("📅 Deposit Time:", new Date(Number(depositTime) * 1000).toLocaleString());
 console.log("");
+
+// Pause to explain deposit
+await sleep(4);
 
 // =============== STEP 3: Time Passes & Check Rewards ===============
 console.log("=".repeat(70));
@@ -107,6 +122,9 @@ const actualApr = (rewardsAfterTime * 365n * 100n) / (stakedAfterTime * 7n);
 console.log("📊 Effective APR:", actualApr.toString(), "%");
 console.log("");
 
+// Pause to explain rewards after 7 days
+await sleep(5);
+
 // =============== STEP 4: More Time Passes ===============
 console.log("=".repeat(70));
 console.log("STEP 4: Simulating More Time (30 more days)");
@@ -125,6 +143,9 @@ console.log("📊 Staked Amount:", formatEther(stakedAfter37Days), "ETH");
 console.log("💎 Rewards Earned (37 days):", formatEther(rewardsAfter37Days), "ETH");
 console.log("💰 Total Value:", formatEther(stakedAfter37Days + rewardsAfter37Days), "ETH");
 console.log("");
+
+// Pause to explain 37-day rewards
+await sleep(4);
 
 // =============== STEP 5: Withdraw ===============
 console.log("=".repeat(70));
@@ -158,6 +179,9 @@ console.log("📈 Net Profit:", formatEther(rewardsAfter37Days - gasUsed), "ETH"
 console.log("\n✅ Final Staked Balance:", formatEther(stakedFinal), "ETH (should be 0)");
 console.log("✅ Final Rewards:", formatEther(rewardsFinal), "ETH (should be 0)");
 console.log("");
+
+// Pause to explain final results
+await sleep(4);
 
 // =============== SUMMARY ===============
 console.log("=".repeat(70));
