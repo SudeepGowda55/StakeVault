@@ -7,7 +7,6 @@ A simple Ethereum staking vault built with **Hardhat v3.0+** for ETHGlobal hacka
 - 💰 Stake ETH and earn 5% APR
 - 📊 Real-time reward calculation
 - 🔄 Withdraw anytime with rewards
-- 🎨 Clean, responsive UI
 
 ## Tech Stack
 
