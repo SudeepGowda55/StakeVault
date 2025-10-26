@@ -163,13 +163,17 @@ Decoded Response (Human-Readable):
 **2. Add Parameter Explanations with Examples**
 
 For complex response fields, provide detailed explanations:
-Field         |  Raw Value        |  Decoded Value             |  Explanation                                           
---------------+-------------------+----------------------------+--------------------------------------------------------
-price         |  "6163260000000"  |  $61,632.60                |  Price with 8 decimal places. Divide by 10^8 (expo: -8)
-conf          |  "3268548079"     |  ±$32.69                   |  Confidence interval (price uncertainty)               
-publish_time  |  1714748300       |  May 3, 2024 14:45:00 GMT  |  Unix timestamp                                        
-gasUsed       |  "0x1a2b3"        |  107,187                   |  Hexadecimal to decimal conversion                     
-amount        |  "0x5f5e100"      |  100.00 USDC               |  Wei to token units (6 decimals for USDC)              
+
+#### Response Field Explanations
+
+| Field | Raw Value | Decoded Value | Explanation |
+|-------|-----------|---------------|-------------|
+| `price` | `"6163260000000"` | `$61,632.60` | Price with 8 decimal places. Divide by 10^8 (expo: -8) |
+| `conf` | `"3268548079"` | `±$32.69` | Confidence interval (price uncertainty) |
+| `publish_time` | `1714748300` | `May 3, 2024 14:45:00 GMT` | Unix timestamp |
+| `gasUsed` | `"0x1a2b3"` | `107,187` | Hexadecimal to decimal conversion |
+| `amount` | `"0x5f5e100"` | `100.00 USDC` | Wei to token units (6 decimals for USDC) |
+           
 
 
 
