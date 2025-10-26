@@ -34,28 +34,12 @@ npx hardhat test
 npx hardhat run scripts/demo-local.ts
 ```
 
-## 📚 Documentation
-
-For complete technical details, deployment guides, and API reference:
-
-👉 **[View Full Documentation](hardhat-v3/README.md)**
-
-Additional resources:
-
-- 🎥 [Video Demo Script](hardhat-v3/DEMO-VIDEO-SCRIPT.md) - Complete recording guide
-- 📝 [Smart Contract](hardhat-v3/contracts/StakeVault.sol) - Solidity source code
-- 🧪 [Test Suite](hardhat-v3/test/) - Solidity & TypeScript tests
-
 ## 🛠️ Tech Stack
 
 - **Smart Contracts:** Solidity 0.8.28
 - **Framework:** Hardhat 3.0.9 (ESM)
 - **Testing:** Foundry + Node.js test runner
 - **Network:** Sepolia Testnet
-
-## 📄 License
-
-MIT
 
 ---
 
@@ -247,8 +231,6 @@ For complex response fields, provide detailed explanations:
 "qrCode": "https://api.nexus.avail.network/qr/tx/0x8e5a...0f1a" // For mobile sharing
 }
 ```
-
-text
 
 **Benefits**:
 
